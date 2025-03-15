@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Speech Recognition - Speech-To-Text" />
+    <meta
+    name="keywords"
+    content="Speech Recognition, Speech-To-Text, Speech Recognition API, Web Speech API"
+    />
+    <meta name="author" content="IfeCodes" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <meta name="robots" content="index, follow" />
+    <title>Speech Recognition - Speech-To-Text</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Speech To Text</h1>
+      <div class="content">
+        <div class="content__text">
+          <label for="language">Language</label>
+          <select id="language">
+            <option value="en-US">English</option>
+            <!-- More languages appear on load from the json file -->
+          </select>
+        </div>
+        <div class="content__button">
+          <button id="start" class="btn" onclick="startListening()">
+            <i id="icons" class="fa-solid fa-microphone-lines"></i>Start Listening
+          </button>
+          <button id="stop" class="btn" onclick="stopRecording()" disabled>
+            <i id="icons" class="fa-solid fa-microphone-lines-slash"></i> Stop Listening
+          </button>
+        </div>
+        <div class="result">
+          <label for="results">Result:</label>
+          <div id="results" class="results" rows="10" cols="50" ></div>
+        </div>
+        <div class="content__button">
+          <button id="clear" class="btn" onclick="clearResults()">
+            <i id="icons" class="fa-solid fa-trash-can"></i>
+            Clear</button>
+          <button id="download" class="btn" onclick="download()" disabled>
+            <i id="icons" class="fa-solid fa-download"></i>
+            Download
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js" defer></script>
+  </body>
+</html>

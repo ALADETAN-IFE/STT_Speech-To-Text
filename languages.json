@@ -1,0 +1,293 @@
+[
+  {
+    "name": "Swahili",
+    "code": "sw",
+    "native": "Kiswahili",
+    "continent": "Africa"
+  },
+  { "name": "Hausa", "code": "ha", "native": "Hausa", "continent": "Africa" },
+  
+  { "name": "Yoruba", "code": "yo", "native": "Yorùbá", "continent": "Africa" },
+  { "name": "Igbo", "code": "ig", "native": "Igbo", "continent": "Africa" },
+  { "name": "Zulu", "code": "zu", "native": "isiZulu", "continent": "Africa" },
+  { "name": "Amharic", "code": "am", "native": "አማርኛ", "continent": "Africa" },
+  {
+    "name": "Shona",
+    "code": "sn",
+    "native": "chiShona",
+    "continent": "Africa"
+  },
+  {
+    "name": "Xhosa",
+    "code": "xh",
+    "native": "isiXhosa",
+    "continent": "Africa"
+  },
+  {
+    "name": "Somali",
+    "code": "so",
+    "native": "Soomaali",
+    "continent": "Africa"
+  },
+  { "name": "Tigrinya", "code": "ti", "native": "ትግርኛ", "continent": "Africa" },
+
+  {
+    "name": "Mandarin Chinese",
+    "code": "zh-CN",
+    "native": "普通话",
+    "continent": "Asia"
+  },
+  { "name": "Hindi", "code": "hi", "native": "हिन्दी", "continent": "Asia" },
+  { "name": "Bengali", "code": "bn", "native": "বাংলা", "continent": "Asia" },
+  { "name": "Urdu", "code": "ur", "native": "اردو", "continent": "Asia" },
+  { "name": "Japanese", "code": "ja", "native": "日本語", "continent": "Asia" },
+  { "name": "Korean", "code": "ko", "native": "한국어", "continent": "Asia" },
+  { "name": "Turkish", "code": "tr", "native": "Türkçe", "continent": "Asia" },
+  {
+    "name": "Vietnamese",
+    "code": "vi",
+    "native": "Tiếng Việt",
+    "continent": "Asia"
+  },
+  { "name": "Thai", "code": "th", "native": "ไทย", "continent": "Asia" },
+  { "name": "Persian", "code": "fa", "native": "فارسی", "continent": "Asia" },
+
+  {
+    "name": "English",
+    "code": "en-US",
+    "native": "English",
+    "continent": "Europe"
+  },
+  {
+    "name": "French",
+    "code": "fr",
+    "native": "Français",
+    "continent": "Europe"
+  },
+  {
+    "name": "Spanish",
+    "code": "es",
+    "native": "Español",
+    "continent": "Europe"
+  },
+  {
+    "name": "German",
+    "code": "de",
+    "native": "Deutsch",
+    "continent": "Europe"
+  },
+  {
+    "name": "Russian",
+    "code": "ru",
+    "native": "Русский",
+    "continent": "Europe"
+  },
+  {
+    "name": "Italian",
+    "code": "it",
+    "native": "Italiano",
+    "continent": "Europe"
+  },
+  {
+    "name": "Dutch",
+    "code": "nl",
+    "native": "Nederlands",
+    "continent": "Europe"
+  },
+  {
+    "name": "Greek",
+    "code": "el",
+    "native": "Ελληνικά",
+    "continent": "Europe"
+  },
+  { "name": "Polish", "code": "pl", "native": "Polski", "continent": "Europe" },
+  {
+    "name": "Portuguese",
+    "code": "pt",
+    "native": "Português",
+    "continent": "Europe"
+  },
+
+  {
+    "name": "Portuguese",
+    "code": "pt-BR",
+    "native": "Português",
+    "continent": "South America"
+  },
+  {
+    "name": "Spanish",
+    "code": "es-419",
+    "native": "Español",
+    "continent": "South America"
+  },
+  {
+    "name": "Quechua",
+    "code": "qu",
+    "native": "Runa Simi",
+    "continent": "South America"
+  },
+  {
+    "name": "Guarani",
+    "code": "gn",
+    "native": "Avañe'ẽ",
+    "continent": "South America"
+  },
+  {
+    "name": "Aymara",
+    "code": "ay",
+    "native": "Aymar aru",
+    "continent": "South America"
+  },
+  {
+    "name": "Mapudungun",
+    "code": "arn",
+    "native": "Mapudungun",
+    "continent": "South America"
+  },
+  {
+    "name": "Wayuu",
+    "code": "way",
+    "native": "Wayuunaiki",
+    "continent": "South America"
+  },
+  {
+    "name": "Ticuna",
+    "code": "tca",
+    "native": "Tikuna",
+    "continent": "South America"
+  },
+  {
+    "name": "Carib",
+    "code": "car",
+    "native": "Kari'nja",
+    "continent": "South America"
+  },
+  {
+    "name": "Warao",
+    "code": "wba",
+    "native": "Warao",
+    "continent": "South America"
+  },
+
+  {
+    "name": "Haitian Creole",
+    "code": "ht",
+    "native": "Kreyòl Ayisyen",
+    "continent": "North America"
+  },
+  {
+    "name": "Cherokee",
+    "code": "chr",
+    "native": "ᏣᎳᎩ",
+    "continent": "North America"
+  },
+  {
+    "name": "Navajo",
+    "code": "nv",
+    "native": "Diné Bizaad",
+    "continent": "North America"
+  },
+  {
+    "name": "Inuktitut",
+    "code": "iu",
+    "native": "ᐃᓄᒃᑎᑐᑦ",
+    "continent": "North America"
+  },
+  {
+    "name": "Mayan",
+    "code": "myn",
+    "native": "Maya'",
+    "continent": "North America"
+  },
+  {
+    "name": "Sioux",
+    "code": "sux",
+    "native": "Lakȟótiyapi",
+    "continent": "North America"
+  },
+  {
+    "name": "Ojibwe",
+    "code": "oj",
+    "native": "Anishinaabemowin",
+    "continent": "North America"
+  },
+  {
+    "name": "Mohawk",
+    "code": "moh",
+    "native": "Kanien'kéha",
+    "continent": "North America"
+  },
+  {
+    "name": "Nahuatl",
+    "code": "nah",
+    "native": "Nāhuatl",
+    "continent": "North America"
+  },
+  {
+    "name": "Miskito",
+    "code": "miq",
+    "native": "Miskitu",
+    "continent": "North America"
+  },
+
+  {
+    "name": "Māori",
+    "code": "mi",
+    "native": "Te Reo Māori",
+    "continent": "Oceania"
+  },
+  {
+    "name": "Tahitian",
+    "code": "ty",
+    "native": "Reo Tahiti",
+    "continent": "Oceania"
+  },
+  {
+    "name": "Samoan",
+    "code": "sm",
+    "native": "Gagana Samoa",
+    "continent": "Oceania"
+  },
+  {
+    "name": "Fijian",
+    "code": "fj",
+    "native": "Na Vosa Vakaviti",
+    "continent": "Oceania"
+  },
+  {
+    "name": "Tongan",
+    "code": "to",
+    "native": "Lea Faka-Tonga",
+    "continent": "Oceania"
+  },
+  {
+    "name": "Hawaiian",
+    "code": "haw",
+    "native": "ʻŌlelo Hawaiʻi",
+    "continent": "Oceania"
+  },
+  {
+    "name": "Chamorro",
+    "code": "ch",
+    "native": "Finu' Chamoru",
+    "continent": "Oceania"
+  },
+  {
+    "name": "Palauan",
+    "code": "pau",
+    "native": "A tekoi er a Belau",
+    "continent": "Oceania"
+  },
+  {
+    "name": "Bislama",
+    "code": "bi",
+    "native": "Bislama",
+    "continent": "Oceania"
+  },
+  {
+    "name": "Yapese",
+    "code": "yap",
+    "native": "Yapese",
+    "continent": "Oceania"
+  }
+]
