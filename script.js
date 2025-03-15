@@ -14,7 +14,7 @@ fetch("./languages.json")
 
 // Selecting elements from the DOM
 let results = document.getElementById("results");
-let interimElement = document.getElementById("interim");
+// let interimElement = document.getElementById("interim");
 let startButton = document.getElementById("start");
 let stopButton = document.getElementById("stop");
 let downloadButton = document.getElementById("download");
@@ -56,29 +56,42 @@ function speechToText() {
 
     recognition.onresult = (event) => {
       let interimTranscript = "";
-      // let finalTranscript = lastFinalText;
-      for (let i = 0; i < event.results.length; i++) {
-        let transcript = processSpeechResult(event.results[i][0].transcript);
+        // let transcript = processSpeechResult(event.results[0][0].transcript);
+        let transcript = event.results[0][0].transcript;
+      if (event.results[0].isFinal) {
+           results.innerHTML += " " + transcript; // Append to full transcripte finalized text
+            results.querySelector(".interim").remove();
+          } else {
+           // interim does not exist creat one
+           if(!document.querySelector(".interim")){
+             const interim = document.createElement("span");
+             interim.classList.add("interim");
+             results.appendChild(interim);
+           }
+           document.querySelector(".interim").innerHTML = " " + transcript;
+          }
+      // for (let i = 0; i < event.results.length; i++) {
+      //   let transcript = processSpeechResult(event.results[i][0].transcript);
 
-        if (event.results[i].isFinal) {
-          fullTranscript += " " + transcript; // Append to full transcripte finalized text
-        } else {
-          interimTranscript += " " + transcript;
-        }
-      }
+      //   if (event.results[i].isFinal) {
+      //     fullTranscript += " " + transcript; // Append to full transcripte finalized text
+      //   } else {
+      //     interimTranscript += " " + transcript;
+      //   }
+      // }
       // console.log("Final: " + finalTranscript);
       // console.log("Interim: " + interimTranscript);
-      
+
        // Display the recognized text
-      if (fullTranscript) {
-        results.classList.add("final");
-        results.classList.remove("interim");
-        results.innerHTML = fullTranscript;
-      } else {
-        results.classList.add("interim");
-        results.classList.remove("final");
-        results.innerHTML = interimTranscript;
-      }
+      // if (fullTranscript) {
+      //   results.classList.add("final");
+      //   results.classList.remove("interim");
+      //   results.innerHTML = fullTranscript;
+      // } else {
+      //   results.classList.add("interim");
+      //   results.classList.remove("final");
+      //   results.innerHTML = interimTranscript;
+      // }
       // results.innerHTML = finalTranscript + '<span class="interim">' + interimTranscript + '</span>';
 
       // Enable download button if text is available
@@ -98,8 +111,6 @@ function speechToText() {
     // Handle errors
     recognition.onerror = (event) => {
       stopRecording();
-      results.classList.add("final");
-      results.classList.remove("interim");
       // alert("Error occurred in recognition: " + event.error);
       console.log("Error occurred in recognition: " + event.error);
     };
@@ -125,8 +136,6 @@ function stopRecording() {
   if (recognition) {
     recognition.stop();
   }
-  results.classList.add("final");
-  results.classList.remove("interim");
   recording = false;
   startButton.disabled = false;
   stopButton.disabled = true;
