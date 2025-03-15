@@ -26,14 +26,15 @@ let speechRecognition =
   recording = false;
 
 // Map of words to punctuation
-const punctuationMap = {
+const punctuationMap = Object.freeze({
   "full stop": ".",
-  period: ".",
-  comma: ",",
+  "period": ".",
+  "comma": ",",
   "question mark": "?",
   "exclamation mark": "!",
-  "exclamation point": "!",
-};
+  "exclamation point": "!"
+});
+
 
 // Function to replace spoken punctuation words with actual symbols
 const processSpeechResult = (speechResult) => {
@@ -51,29 +52,28 @@ function speechToText() {
     recognition.interimResults = true;
     recognition.start();
 
-    let lastFinalText = "";
+    let fullTranscript = "";
 
     recognition.onresult = (event) => {
       let interimTranscript = "";
-      let finalTranscript = lastFinalText;
+      // let finalTranscript = lastFinalText;
       for (let i = 0; i < event.results.length; i++) {
         let transcript = processSpeechResult(event.results[i][0].transcript);
 
         if (event.results[i].isFinal) {
-          finalTranscript += " " + transcript;
-          lastFinalText = finalTranscript; // Store finalized text
+          fullTranscript += " " + transcript; // Append to full transcripte finalized text
         } else {
           interimTranscript += " " + transcript;
         }
       }
       // console.log("Final: " + finalTranscript);
       // console.log("Interim: " + interimTranscript);
-
+      
        // Display the recognized text
-      if (finalTranscript) {
+      if (fullTranscript) {
         results.classList.add("final");
         results.classList.remove("interim");
-        results.innerHTML = finalTranscript;
+        results.innerHTML = fullTranscript;
       } else {
         results.classList.add("interim");
         results.classList.remove("final");
