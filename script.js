@@ -100,8 +100,8 @@ function speechToText() {
       stopRecording();
       results.classList.add("final");
       results.classList.remove("interim");
-      alert("Error occurred in recognition: " + event.error);
-      console.log("Error occurred in recognition: " + event);
+      // alert("Error occurred in recognition: " + event.error);
+      console.log("Error occurred in recognition: " + event.error);
     };
   } catch (error) {
     recording = false;
