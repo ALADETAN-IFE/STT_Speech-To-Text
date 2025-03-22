@@ -150,7 +150,10 @@ function stopRecording() {
   recording = false;
   start_Btn.disabled = false;
   stop_Btn.disabled = true;
-  TextToSpeech();
+  if (!document.querySelector(".interim")) {
+   TextToSpeech();
+  }
+
 }
 
 // Function to clear the results
@@ -191,6 +194,7 @@ function setVoices() {
     (voice, index) =>
       (voiceSelect.options[index] = new Option(voice.name, index))
   );
+  console.log(voiceSelect.selectedIndex)
 }
 
 setVoices();
@@ -203,6 +207,8 @@ function TextToSpeech() {
   if (recording == false && results.innerHTML.trim() !== "") {
     utterance.text = results.innerHTML;
     utterance.voice = voices[voiceSelect.selectedIndex];
+    console.log(utterance.voice)
+    alert(`voice: ${utterance.voice}`)
     speechSynthesis.speak(utterance);
   }
 }
