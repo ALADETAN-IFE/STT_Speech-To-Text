@@ -209,6 +209,7 @@ function TextToSpeech() {
     utterance.voice = voices[voiceSelect.selectedIndex];
     console.log(utterance.voice)
     alert(`voice: ${utterance.voice}`)
+    
     speechSynthesis.speak(utterance);
   }
 }
