@@ -1,113 +1,180 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    font-family: 'Poppins', sans-serif;
-    background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f5f5;
 }
 
 .container {
-    max-width: 400px;
-    width: 100%;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    text-align: center;
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 h1 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .content__text {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .content__text label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .content__text select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .content__button {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #2f53f0;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 400;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-    margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  background-color: #2f53f0;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
 }
 
 .btn:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 .btn:disabled:hover {
-    background-color: #ccc;
-    /* cursor: not-allowed; */
+  background-color: #ccc;
+  /* cursor: not-allowed; */
 }
 
 .btn:hover {
-    background-color: #205791;
+  background-color: #205791;
 }
 
 .result {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .result label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .results {
-    width: 100%;
-    padding: 10px;
-    font-family: sans-serif;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-    height: 190px;
-    overflow: auto;
-    text-align: left;
-    white-space: pre-wrap;
+  width: 100%;
+  padding: 10px;
+  font-family: sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  height: 190px;
+  overflow: auto;
+  text-align: left;
+  white-space: pre-wrap;
 }
 
-.results::first-letter{
-    text-transform: uppercase;
+.results::first-letter {
+  text-transform: uppercase;
 }
 
 .interim {
-    color: #888;
-    font-style: italic;
+  color: #888;
+  font-style: italic;
 }
 
 #icons {
-    margin-right: 5px;
-    /* font-weight: 400; */
+  margin-right: 5px;
+  /* font-weight: 400; */
+}
+
+.note {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.noteBody {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  min-height: 100vh;
+  background-color: rgba(163, 152, 152, 0.637);
+  backdrop-filter: blur(1px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  & .note {
+    min-width: 50%;
+    max-width: 100%;
+    width:50%;
+    position: relative;
+    cursor: default;
+
+    & .note_to_Show {
+      display: contents;
+    }
+
+    & bold {
+      color: rgb(194, 55, 55);
+      font-size: larger;
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      cursor: pointer;
+    }
+  }
+}
+
+.note_to_Show {
+  display: none;
+}
+
+.note h2 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.note p {
+  margin-bottom: 10px;
+}
+
+.note ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.note ul ul {
+  list-style-type: circle;
 }

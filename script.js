@@ -19,6 +19,23 @@ let stop_Btn = document.getElementById("stop");
 let download_Btn = document.getElementById("download");
 let voiceSelect = document.getElementById("voiceSelect");
 let speak_Btn = document.getElementById("speak");
+let note = document.querySelector(".note")
+let note_to_Show = document.querySelector(".note_to_Show")
+let toNote = document.querySelector(".toNote")
+// note_to_Show
+
+//Function to show note 
+function showNote() {
+  let noteBody = document.querySelector(".noteBody")
+  if (!noteBody) {
+    toNote.classList.add("noteBody")
+    toNote.classList.remove("note_to_Show")
+    // console.log("hello")
+  }else {
+    toNote.classList.remove("noteBody")
+    toNote.classList.add("note_to_Show")
+  }
+}
 
 // Initialize Speech Recognition API
 let speechRecognition =
