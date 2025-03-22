@@ -19,21 +19,22 @@ let stop_Btn = document.getElementById("stop");
 let download_Btn = document.getElementById("download");
 let voiceSelect = document.getElementById("voiceSelect");
 let speak_Btn = document.getElementById("speak");
-let note = document.querySelector(".note")
-let note_to_Show = document.querySelector(".note_to_Show")
-let toNote = document.querySelector(".toNote")
-// note_to_Show
+let note = document.querySelector(".note");
+let note_to_Show = document.querySelector(".note_to_Show");
+let toNote = document.querySelector(".toNote");
+let scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-//Function to show note 
+//Function to show note
 function showNote() {
-  let noteBody = document.querySelector(".noteBody")
+  let noteBody = document.querySelector(".noteBody");
   if (!noteBody) {
-    toNote.classList.add("noteBody")
-    toNote.classList.remove("note_to_Show")
+    toNote.classList.add("noteBody");
+    toNote.classList.remove("note_to_Show");
     // console.log("hello")
-  }else {
-    toNote.classList.remove("noteBody")
-    toNote.classList.add("note_to_Show")
+  } else {
+    scrollToTop();
+    toNote.classList.remove("noteBody");
+    toNote.classList.add("note_to_Show");
   }
 }
 
@@ -167,8 +168,8 @@ function stopRecording() {
   recording = false;
   start_Btn.disabled = false;
   stop_Btn.disabled = true;
-    if (!document.querySelector(".interim")) {
-   TextToSpeech();
+  if (!document.querySelector(".interim")) {
+    TextToSpeech();
   }
 }
 
@@ -182,7 +183,11 @@ function clearResults() {
 // Function to download the recognized text
 function download() {
   const text = results.innerHTML;
-  const firstLetterofFirstWord = text.trim().split(" ")[0].charAt(0).toUpperCase();
+  const firstLetterofFirstWord = text
+    .trim()
+    .split(" ")[0]
+    .charAt(0)
+    .toUpperCase();
   const remainingLettersofFirstWord = text.trim().split(" ")[0].slice(1);
   const filename = `${firstLetterofFirstWord}${remainingLettersofFirstWord}_speech.txt`;
 
@@ -212,7 +217,7 @@ function setVoices() {
     (voice, index) =>
       (voiceSelect.options[index] = new Option(voice.name, index))
   );
-  console.log(voiceSelect.selectedIndex)
+  console.log(voiceSelect.selectedIndex);
 }
 
 setVoices();
@@ -225,8 +230,22 @@ function TextToSpeech() {
   if (recording == false && results.innerHTML.trim() !== "") {
     utterance.text = results.innerHTML;
     utterance.voice = voices[voiceSelect.selectedIndex];
-    console.log(utterance.voice)
-    alert(`voice: ${utterance.voice?.name}`)
+    console.log(utterance.voice);
+    alert(`voice: ${utterance.voice?.name}`);
     speechSynthesis.speak(utterance);
   }
 }
+
+// Function to scroll to top
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// Show or hide the scroll to top button based on scroll position
+window.onscroll = function () {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrollToTopBtn.style.display = "block";
+  } else {
+    scrollToTopBtn.style.display = "none";
+  }
+};
