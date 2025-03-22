@@ -12,6 +12,7 @@ body {
   padding: 15px;
   font-family: "Poppins", sans-serif;
   background-color: #f5f5f5;
+  position: relative;
 }
 
 .container {
@@ -123,20 +124,21 @@ h1 {
 }
 
 .noteBody {
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   z-index: 999;
-  min-height: 100vh;
+  height: auto ;
   background-color: rgba(163, 152, 152, 0.637);
   backdrop-filter: blur(1px);
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 20px;
+  padding: 10px;
 
   & .note {
-    min-width: 50%;
+    min-width: 300px;
+    /* min-width: 50%; */
+    height: auto;
     max-width: 100%;
     width:50%;
     position: relative;
