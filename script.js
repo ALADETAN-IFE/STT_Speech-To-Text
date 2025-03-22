@@ -150,10 +150,9 @@ function stopRecording() {
   recording = false;
   start_Btn.disabled = false;
   stop_Btn.disabled = true;
-  if (!document.querySelector(".interim")) {
+    if (!document.querySelector(".interim")) {
    TextToSpeech();
   }
-
 }
 
 // Function to clear the results
@@ -208,7 +207,7 @@ function TextToSpeech() {
     utterance.text = results.innerHTML;
     utterance.voice = voices[voiceSelect.selectedIndex];
     console.log(utterance.voice)
-    alert(`voice: ${utterance.voice}`)
+    alert(`voice: ${utterance.voice?.name}`)
     speechSynthesis.speak(utterance);
   }
 }
