@@ -14,10 +14,11 @@ fetch("./languages.json")
 
 // Selecting elements from the DOM
 let results = document.getElementById("results");
-// let interimElement = document.getElementById("interim");
-let startButton = document.getElementById("start");
-let stopButton = document.getElementById("stop");
-let downloadButton = document.getElementById("download");
+let start_Btn = document.getElementById("start");
+let stop_Btn = document.getElementById("stop");
+let download_Btn = document.getElementById("download");
+let voiceSelect = document.getElementById("voiceSelect");
+let speak_Btn = document.getElementById("speak");
 
 // Initialize Speech Recognition API
 let speechRecognition =
@@ -25,16 +26,21 @@ let speechRecognition =
   recognition,
   recording = false;
 
+if (!speechRecognition) {
+  alert(`Speech Recognition API is not supported in this browser.
+Please use Chrome
+     `);
+}
+
 // Map of words to punctuation
 const punctuationMap = Object.freeze({
   "full stop": ".",
-  "period": ".",
-  "comma": ",",
+  period: ".",
+  comma: ",",
   "question mark": "?",
   "exclamation mark": "!",
-  "exclamation point": "!"
+  "exclamation point": "!",
 });
-
 
 // Function to replace spoken punctuation words with actual symbols
 const processSpeechResult = (speechResult) => {
@@ -46,6 +52,10 @@ const processSpeechResult = (speechResult) => {
 
 // Function to start speech recognition
 function speechToText() {
+  if (!speechRecognition)
+    return alert(`Speech Recognition API is not supported in this browser.
+      Please use Chrome
+    `);
   try {
     recognition = new speechRecognition();
     recognition.lang = document.getElementById("language").value;
@@ -56,20 +66,20 @@ function speechToText() {
 
     recognition.onresult = (event) => {
       let interimTranscript = "";
-        // let transcript = processSpeechResult(event.results[0][0].transcript);
-        let transcript = event.results[0][0].transcript;
+      // let transcript = processSpeechResult(event.results[0][0].transcript);
+      let transcript = event.results[0][0].transcript;
       if (event.results[0].isFinal) {
-           results.innerHTML += " " + transcript; // Append to full transcripte finalized text
-            results.querySelector(".interim").remove();
-          } else {
-           // interim does not exist creat one
-           if(!document.querySelector(".interim")){
-             const interim = document.createElement("span");
-             interim.classList.add("interim");
-             results.appendChild(interim);
-           }
-           document.querySelector(".interim").innerHTML = " " + transcript;
-          }
+        results.innerHTML += " " + transcript; // Append to full transcripte finalized text
+        results.querySelector(".interim").remove();
+      } else {
+        // interim does not exist creat one
+        if (!document.querySelector(".interim")) {
+          const interim = document.createElement("span");
+          interim.classList.add("interim");
+          results.appendChild(interim);
+        }
+        document.querySelector(".interim").innerHTML = " " + transcript;
+      }
       // for (let i = 0; i < event.results.length; i++) {
       //   let transcript = processSpeechResult(event.results[i][0].transcript);
 
@@ -82,7 +92,7 @@ function speechToText() {
       // console.log("Final: " + finalTranscript);
       // console.log("Interim: " + interimTranscript);
 
-       // Display the recognized text
+      // Display the recognized text
       // if (fullTranscript) {
       //   results.classList.add("final");
       //   results.classList.remove("interim");
@@ -94,9 +104,10 @@ function speechToText() {
       // }
       // results.innerHTML = finalTranscript + '<span class="interim">' + interimTranscript + '</span>';
 
-      // Enable download button if text is available
+      // Enable download Button if text is available
       if (results.innerHTML.length > 0) {
-        downloadButton.disabled = false;
+        download_Btn.disabled = false;
+        speak_Btn.style.display = "inline-block";
       }
     };
 
@@ -118,15 +129,15 @@ function speechToText() {
     recording = false;
     console.error(error);
   }
-};
+}
 
 // Function to start listening for speech
 function startListening() {
   console.log("Listening...");
   if (!recording) {
     recording = true;
-    startButton.disabled = true;
-    stopButton.disabled = false;
+    start_Btn.disabled = true;
+    stop_Btn.disabled = false;
     speechToText();
   }
 }
@@ -137,15 +148,16 @@ function stopRecording() {
     recognition.stop();
   }
   recording = false;
-  startButton.disabled = false;
-  stopButton.disabled = true;
+  start_Btn.disabled = false;
+  stop_Btn.disabled = true;
+  TextToSpeech();
 }
 
 // Function to clear the results
 function clearResults() {
   results.innerHTML = "";
   // interimElement.innerText = "";
-  downloadButton.disabled = true;
+  download_Btn.disabled = true;
 }
 
 // Function to download the recognized text
@@ -163,4 +175,34 @@ function download() {
   document.body.appendChild(element);
   element.click();
   document.body.removeChild(element);
+}
+
+// Text-to-Speech
+
+let utterance = new SpeechSynthesisUtterance();
+let voices = [];
+
+// Function to set voices
+function setVoices() {
+  voices = window.speechSynthesis.getVoices();
+  utterance.voice = voices[0];
+
+  voices.forEach(
+    (voice, index) =>
+      (voiceSelect.options[index] = new Option(voice.name, index))
+  );
+}
+
+setVoices();
+
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = setVoices;
+}
+
+function TextToSpeech() {
+  if (recording == false && results.innerHTML.trim() !== "") {
+    utterance.text = results.innerHTML;
+    utterance.voice = voices[voiceSelect.selectedIndex];
+    speechSynthesis.speak(utterance);
+  }
 }
