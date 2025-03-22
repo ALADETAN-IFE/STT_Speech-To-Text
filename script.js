@@ -165,7 +165,9 @@ function clearResults() {
 // Function to download the recognized text
 function download() {
   const text = results.innerHTML;
-  const filename = "speech.txt";
+  const firstLetterofFirstWord = text.trim().split(" ")[0].charAt(0).toUpperCase();
+  const remainingLettersofFirstWord = text.trim().split(" ")[0].slice(1);
+  const filename = `${firstLetterofFirstWord}${remainingLettersofFirstWord}_speech.txt`;
 
   const element = document.createElement("a");
   element.setAttribute(
